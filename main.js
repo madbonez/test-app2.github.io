@@ -1029,11 +1029,12 @@ class TransferComponent {
     constructor(router, cd) {
         this.router = router;
         this.cd = cd;
+        this.activeLink = '/card2card';
     }
     ngOnInit() {
         this.router.events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])((event) => event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]))
             .subscribe((event) => {
-            this.activeLink = event.url;
+            this.activeLink = window.location.href;
             this.cd.markForCheck();
         });
     }
